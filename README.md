@@ -1,2 +1,3 @@
-# CSharpFundamentalsWithVS2015
-C# Fundamentals With Visual Studio 2015 - Pluralsight course by Scott Allen
+# BuildingAppsWithAspNetMvc4
+
+Building Applications With ASP.NET MVC 4 - Pluralsight course by Scott Allen
