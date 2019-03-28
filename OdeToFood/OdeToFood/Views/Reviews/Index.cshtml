@@ -1,60 +1,30 @@
-﻿@model IEnumerable<OdeToFood.Models.RestaurantReview>
+﻿@using System.Drawing.Imaging
+@model IEnumerable<OdeToFood.Models.RestaurantReview>
 
 @{
     ViewBag.Title = "Index";
+    //    var firstReview = Model.First();
 }
+
+@* @firstReview.Name *@
 
 <h2>The Latest Reviews</h2>
 
 <p>We are showing the latest @Model.Count() reviews</p>
 <!-- p>@VirtualPath</p -->
+
+@foreach (var item in Model)
+{
+    // if you write just "Review:", razor will think it is C#. You need to prepend with @:
+    @:Review:
+    <div class="review">
+        <h4>@item.Name</h4>
+        <span>@item.Rating</span>
+        <p>@item.City, @item.Country</p>
+    </div>
+    @:}
+}
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name) 
-            @* @TwtitterHandle *@
-            @@TwtitterHandle
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-            @* @Html.Raw(item.City) *@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @* @Html.DisplayFor(modelItem => item.Rating) *@
-            @* @item.Rating/10 *@
-            @* Rating@item.Rating *@
-            @* Rating@(item.Rating) *@
-            @(item.Rating/2)/5
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
