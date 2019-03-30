@@ -16,13 +16,9 @@
 @foreach (var item in Model)
 {
     // if you write just "Review:", razor will think it is C#. You need to prepend with @:
-    @:Review:
-    <div class="review">
-        <h4>@item.Name</h4>
-        <span>@item.Rating</span>
-        <p>@item.City, @item.Country</p>
-    </div>
-    @:}
+@*     @:Review: *@
+    @Html.Partial("_Review", item)
+@*     @:} *@
 }
 
 <p>
