@@ -10,7 +10,7 @@ namespace OdeToFood.Filters
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            base.OnActionExecuting(filterContext);  
+            base.OnActionExecuting(filterContext);
         }
 
         public override void OnActionExecuted(ActionExecutedContext filterContext)
@@ -27,5 +27,6 @@ namespace OdeToFood.Filters
         {
             base.OnResultExecuted(filterContext);
         }
+
     }
 }

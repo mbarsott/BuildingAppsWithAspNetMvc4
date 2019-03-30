@@ -1,9 +1,9 @@
-﻿using System;
+﻿using OdeToFood.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using OdeToFood.Models;
 
 namespace OdeToFood.Controllers
 {
@@ -15,18 +15,19 @@ namespace OdeToFood.Controllers
             var action = RouteData.Values["action"];
             var id = RouteData.Values["id"];
 
-            var message = string.Format("{0}::{1} {2}", controller, action, id);
+            var message = String.Format("{0}::{1} {2}", controller, action, id);
+
 
             ViewBag.Message = message;
+
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "About page.";
             var model = new AboutModel();
-            model.Name = "Marcelo";
-            model.Location = "Ottawa, ON";
+            model.Name = "Scott";
+            model.Location = "Maryland, USA";
 
             return View(model);
         }

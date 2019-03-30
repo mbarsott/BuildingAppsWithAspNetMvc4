@@ -1,26 +1,30 @@
-﻿@using System.Drawing.Imaging
-@model IEnumerable<OdeToFood.Models.RestaurantReview>
+﻿@model IEnumerable<OdeToFood.Models.RestaurantReview>
 
 @{
     ViewBag.Title = "Index";
-    //    var firstReview = Model.First();
+
+    
+
 }
 
-@* @firstReview.Name *@
+@section featured{
+
+    We are showing the latest @Model.Count() reviews
+
+}
 
 <h2>The Latest Reviews</h2>
 
-<p>We are showing the latest @Model.Count() reviews</p>
-<!-- p>@VirtualPath</p -->
+
 
 @foreach (var item in Model)
 {
-    // if you write just "Review:", razor will think it is C#. You need to prepend with @:
-@*     @:Review: *@
-    @Html.Partial("_Review", item)
-@*     @:} *@
+    
+   @Html.Partial("_Review", item)
+    
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create")  
 </p>
+
